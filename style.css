@@ -4,93 +4,48 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px;
-    font-size: 20px;
+    font-size: 18px;
     list-style: none;
     text-decoration: none;
 }
 
-.menu-mobile {
-    margin-top: 30x;
-    margin-left: 30px;
-    display: none;
-}
-
-.menu-mobile .menu-lines {
-    position: absolute;
-    z-index: 999;
-    width: 35px;
-    height: 35px;
-}
-
-.menu-mobile .menu-lines span {
-    display: block;
-    width: 35px;
-    height: 5px;
-    margin-bottom: 10px;
-    background-color: #000;
-    border-radius: 3px;
-    transition: all ease .3s;
-}
-
-.menu-mobile .menu-fakertrigger {
-    position: absolute;
-    z-index: 1000;
-    width: 35px;
-    height: 35px;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.menu-mobile .menu-fakertrigger:checked~.menu-lines span {
- background-color: #000;
-}
-
-.menu-mobile .menu-fakertrigger:checked~.menu-lines span:nth-child(1) {
-     transform-origin: 0% 0%;
-     transform: rotate(45deg) scaleX(1.25);
-}
-
-.menu-mobile .menu-fakertrigger:checked~.menu-lines span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-mobile .menu-fakertrigger:checked~.menu-lines span:nth-child(3) {
-    transform-origin: 0% 100%;
-    transform: rotate(-45deg) scaleX(1.25);
-}
-
-.menu-mobile ul {
-    position: absolute;
-    z-index: 998;
-    left: 0;
-    top: 0;
-    width: 100%;
-    padding: 100px;
-    height: calc(100vh - 100px);
-    background-color: EDEDED;
-    margin-left: -100%;
-    background-color: #f9fffb;
-    transition: all ease .3s;
-    line-height: 80px;
-    text-align: center;
-}
-
-.menu-mobile ul li{
-    margin: 10px;
-    padding: 10px;
-}
-
-.menu-mobile ul li a:hover {
-    color: #171717a6;
-}
-.menu-mobile .menu-fakertrigger:checked~ul{
-    margin: 0;
-}
-
-
 a {
-    text-decoration: none;
-    color: black;
+    color: #000;
+}
+
+a:hover {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+header {
+    display: flex;
+    height: 70px;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 1220px;
+    
+}
+
+#logo img {
+    height: 70px;
+    width: auto;
+}
+
+header ul {
+    display: flex;
+    gap: .6rem;
+}
+
+header ul li a {
+    display: block;
+    padding: 10px 5px;
+}
+
+#btn-mobile {
+    display: none;
 }
 
 main {
@@ -100,43 +55,12 @@ main {
     margin: auto;
 }
 
-header .menu-nav {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1220px;
-    margin: auto;
-    padding: 25px 10px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-.menu ul{
-    display: flex;
-    list-style: none;
-}
-
-.menu ul li {
- 
-    margin-left: 25px;
-    cursor: pointer;
-}
-
-.menu ul li a:hover {
-    color: #171717a6;
-    transition: all ease .3s;
-}
-
 .myself {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.fx {
-    flex-grow: 1;
-}
 
 .myself span {
     font-size: 25px;
@@ -291,7 +215,41 @@ header .menu-nav {
     width: 45px;
 }
 
+.all-projects {
+    display: flex;
+    flex-direction: column;
+    max-width: 1220px;
+    margin:25px auto;
+    border-top: rgba(0, 0, 0, 0.212) solid 1px;
+    padding: 10px;
+}
 
+
+.all-projects h2 {
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 20px;
+}
+
+.projects {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto;
+    width: 350px;
+    height: 210px;
+    border: solid #0b1a1a81;
+}
 
 @media(max-width: 1120px) {
 
@@ -312,18 +270,70 @@ header .menu-nav {
 
 @media(max-width:720px) {
     /*A partir daqui começa minha configuração mobile*/
-    header .menu-nav {
-        display: none;
-    }
-
-    .menu-mobile {
+    #btn-mobile {
         display: block;
-        margin-top: 30px;
     }
 
-    .menu-mobile .logo-mobile {
+    #menu { 
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: -100%;
+        z-index: 1000;
+        height: calc(100vh - 70px);
+        background-color: #FFF;
+        transition:  .8s;   
+    }
+
+    #nav.active #menu {
+        display: block;
+        right: 0;
+    }
+
+    #menu a {
+        margin: 1rem;
+        padding: 1rem 0;
+    }
+
+    #btn-mobile {
         display: flex;
-        justify-content: flex-end;
-        padding: 6px 10px;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        background: none;
+        padding: .5 1rem;
+        gap: .5rem;
+    }
+
+    #hamburger {
+        display: block;
+        width: 20px;
+        border-top: 2px solid;
+    
+    }
+
+    #hamburger::after, #hamburger::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .8s;
+        position: relative;
+    }
+
+    nav.active #hamburger {
+        border-top: transparent;
+    }
+
+    nav.active #hamburger::before {
+        transform: rotate(225deg);
+    }
+
+    nav.active #hamburger::after {
+        transform: rotate(135deg);
+        top: -7px;
     }
 }
