@@ -281,6 +281,7 @@ main {
         top: 70px;
         right: -100%;
         z-index: 1000;
+        overflow: hidden;
         height: calc(100vh - 70px);
         background-color: #FFF;
         transition:  .8s;   
