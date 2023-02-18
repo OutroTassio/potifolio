@@ -9,6 +9,10 @@
     text-decoration: none;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 a {
     color: #000;
 }
@@ -27,6 +31,7 @@ header {
     margin-bottom: 20px;
     max-width: 1220px;
     
+    overflow: hidden;
 }
 
 #logo img {
@@ -281,11 +286,11 @@ main {
         top: 70px;
         right: -100%;
         z-index: 1000;
-        overflow: hidden;
         height: calc(100vh - 70px);
-        background-color: #FFF;
-        transition:  .8s;   
+        transition:  .8s; 
+        background-color: #fff;
     }
+
 
     #nav.active #menu {
         display: block;
